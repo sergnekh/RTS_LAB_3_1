@@ -49,10 +49,11 @@ public class Lab3_1 extends AppCompatActivity {
         sqrtN.append(Double.toString(sqrtFromN));
     }
 
-    public void onIterationClick(View view){
+   public void onIterationClick(View view){
         Button button = findViewById(R.id.iteration);
         double numberInProcess = Math.pow(sqrtFromN,2) - number;
         finalRes = Math.sqrt(numberInProcess);
+        double start = System.nanoTime();
         if ((finalRes % 1) == 0){
             processCount.setText(null);
             iterSqrtN.setText(null);
@@ -80,6 +81,12 @@ public class Lab3_1 extends AppCompatActivity {
             processCount.append(outputProcess);
             sqrtFromN++;
             newValueN.append(Double.toString(sqrtFromN));
+        }
+        double end = System.nanoTime();
+        double times = end - start;
+        times /= 1000000;
+
+        time.setText(Double.toString(times));
         }
     }
 
